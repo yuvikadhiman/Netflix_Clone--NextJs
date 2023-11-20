@@ -1,0 +1,116 @@
+.form_container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 25rem;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 3rem 2rem;
+}
+.form_container h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.control {
+  margin-bottom: 0.8rem;
+}
+.control input {
+  display: block;
+  font: inherit;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #333333;
+  padding: 0.85rem;
+  border: none;
+  color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.control input:focus {
+  outline: none;
+}
+.control ::placeholder {
+  color: rgba(255, 255, 255, 0.518);
+  font-size: 1rem;
+}
+.action button {
+  width: 100%;
+  font-size: 1.1rem;
+  background-color: var(--primary-300);
+  color: var(--primary-50);
+  border-radius: 0.1875rem;
+  border: none;
+  padding: 0.9rem;
+  margin-top: 2rem;
+}
+.login_help {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  font-size: 0.89rem;
+  color: rgba(255, 253, 253, 0.774);
+}
+.login_help input {
+  width: 22px;
+  height: 18px;
+  margin-right: 0.5rem;
+  background-color:rgba(255, 255, 255, 0.518);
+  accent-color: rgba(78, 76, 76, 0.518);
+}
+.login_centers{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+.login_google,.login_github{
+  margin: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.login_google:hover,.login_github:hover{
+  opacity: 80%;
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+.signup_help {
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.518);
+}
+.signup_link {
+  color: white;
+  color: antiquewhite;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.signup_help p:nth-child(even) {
+  color: rgba(255, 255, 255, 0.518);
+  font-size: 13px;
+}
+.signup_help span:nth-child() {
+  color: rgb(35, 46, 255);
+  font-size: 16px;
+  line-height: 1rem;
+}

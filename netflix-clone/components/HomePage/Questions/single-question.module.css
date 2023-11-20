@@ -1,0 +1,34 @@
+.question {
+  background-color: #2d2d2d;
+  padding: 0 2rem;
+  margin: 0.6rem 0;
+
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.question h5 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin: 0;
+  padding:1.3rem 0 ;
+}
+.question p {
+  color: #ffffff;
+  background-color: #2d2d2d;
+  font-size: 1.3rem;
+  text-align: justify;
+  padding-bottom: 1.2rem;
+}
+.question_btn {
+  background: transparent;
+  border-color: transparent;
+  color: white;
+}
+.icon {
+
+  height: 30px;
+  width: 80px;
+}

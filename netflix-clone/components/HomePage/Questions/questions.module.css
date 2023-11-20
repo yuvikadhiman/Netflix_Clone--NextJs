@@ -1,0 +1,16 @@
+.question_container {
+  background-color: black;
+  padding: 2rem;
+}
+.question_container h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.question_section {
+  width: 85vw;
+  background: rgb(0, 0, 0);
+  margin:3rem 4rem;
+  padding:  0 4rem;
+}

@@ -1,0 +1,19 @@
+.searchMovie_section{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    padding: 8rem;
+    margin: 0 auto;
+}
+.thumbail_image{
+    height: 260px;
+    width: 220px;
+    cursor: pointer;
+}
+.thumbail_image:hover{
+    transform: scale(1.04);
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+}

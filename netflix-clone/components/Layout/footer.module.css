@@ -1,0 +1,19 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:1rem;
+  margin: 4rem 6rem;
+  
+}
+.footer li{
+    list-style: none;
+    text-decoration:1px solid rgb(177, 177, 177);
+    text-decoration-line: underline;
+    font-size: 1rem;
+    color: rgb(177, 177, 177);
+    line-height: 2.4rem;
+}
+.footer p{
+    font-size: 1.1rem;
+    text-decoration: none;
+}

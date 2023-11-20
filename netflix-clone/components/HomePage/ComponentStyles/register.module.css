@@ -1,0 +1,53 @@
+.register {
+  margin-top: -4%;
+  padding: 0 9rem;
+}
+.register h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+}
+.register hr {
+  border: 4px solid rgba(145, 144, 144, 0.215);
+}
+.control input {
+  display: block;
+  font: inherit;
+  margin-right: 9.5rem;
+  width: 97%;
+  border-radius: 4px;
+  background-color: #161416c3;
+  padding: 0.85rem;
+  border: 1px solid rgba(145, 144, 144, 0.7);
+  -webkit-border-radius: 1px solid rgba(145, 144, 144, 0.7);
+  -moz-border-radius: 1px solid rgba(145, 144, 144, 0.7);
+  -ms-border-radius: 1px solid rgba(145, 144, 144, 0.7);
+  -o-border-radius: 1px solid rgba(145, 144, 144, 0.7);
+}
+.control :focus {
+  border: none;
+}
+.control ::placeholder {
+  color: rgba(255, 255, 255, 0.693);
+  font-size: 1.1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 0.1875rem;
+  background-color: var(--primary-300);
+  color: var(--primary-50);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.icon {
+  padding-top: 0.2rem;
+}

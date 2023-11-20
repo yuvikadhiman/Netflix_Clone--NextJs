@@ -1,0 +1,17 @@
+.auth_section {
+  width: 100%;
+  height:110vh;
+  background-image: url("/images/homePage.jpg");
+}
+.header {
+  padding: 1.5rem 6rem;
+}
+.auth_bg {
+    height: 100%;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0,
+        rgba(0, 0, 0, 0.308) 60%,
+        rgba(0, 0, 0, 0.748) 100%
+      );
+}

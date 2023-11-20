@@ -1,0 +1,72 @@
+.featuredPosts {
+  color: var(--primary-50);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: black;
+}
+.featuredPosts hr {
+  border: 4px solid rgba(145, 144, 144, 0.215);
+}
+.post {
+  height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2.4rem 4rem;
+  padding: 0 4rem;
+  position: relative;
+}
+.post_Content ,.post1_Content,.post3_Content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  padding: 3rem;
+}
+.post_Content h1 ,.post1_Content h1,.post3_Content h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+  }
+.post_Content p ,.post1_Content p,.post3_Content p{
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.post1_Content {
+  padding: 3rem;
+  padding-right: 5rem;
+}
+.post1_Content p {
+  padding-right: 5rem;
+}
+
+.post_video video {
+  position: relative;
+  top: 18%;
+  right: 26%;
+  z-index: 0;
+}
+.post_video img ,.post3_video img{
+  top: 4%;
+  position: absolute;
+  left: 52%;
+  z-index: 1;
+}
+.post3_video video {
+  position: relative;
+  top: 15%;
+  right: 50%;
+  z-index: 0;
+  width: 390px;
+}
+
+.post3_Content {
+  padding-right: 5rem;
+}
+
+.post3_Content p {
+  margin-right: 5rem;
+  padding-right: 7rem;
+
+}
+.register_post{
+  margin-bottom: 4rem;
+}
