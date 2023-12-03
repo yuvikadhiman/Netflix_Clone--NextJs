@@ -4,7 +4,8 @@ import Link from "next/link";
 import Logo from "../HomePage/logo";
 import Authform from "./authform";
 
-const AuthPage = () => {
+const AuthPage = (session) => {
+  console.log(session)
   return (
     <section className={classes.auth_section}>
       <div className={classes.auth_bg}>

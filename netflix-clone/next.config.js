@@ -17,8 +17,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "image.tmdb.org",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
     // domains: ["image.tmdb.org"],
   },
 };
-module.exports = nextConfig
+module.exports = nextConfig;

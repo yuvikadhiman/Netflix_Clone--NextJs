@@ -3,50 +3,57 @@ import connectDB from "@/utils/connectDB";
 import nextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import Error from "next/error";
-import GoogleProvider from "next-auth/providers/google"
+import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 
 export default nextAuth({
-  session: {
-    strategy:'jwt',
-    jwt: true,
-  },
-  jwt:{
-    secret:process.env.NEXTAUTH_JWT_SECRET
-  },
-  secret:process.env.NEXTAUTH_SECRET
-  ,
+
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID || '',
-      clientSecret: process.env.GITHUB_SECRET || ''
+      clientId: process.env.GITHUB_ID || "",
+      clientSecret: process.env.GITHUB_SECRET || "",
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
     CredentialsProvider({
+      id: "credentials",
+      name: "credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return 
+        }
+
         await connectDB(process.env.MONGO_URI);
         console.log("connected to user database");
         const user = await User.findOne({ email: credentials.email });
+        console.log(user);
         if (!user) {
-          throw new Error("No User Found");
+          return
         }
         const isPasswordCorrect = await user.comparePassword(
           credentials.password
-          );
-          if (!isPasswordCorrect) {
-            throw new Error("invalid Credentials");
-          }
-          return {
-          user: {
-            name: user.name,
-            email: user.email,
-          },
-        };
+        );
+        if (!isPasswordCorrect) {
+          return res.status(401).json({error:'Forbidden'});
+        }
+        return user
       },
     }),
   ],
-
+  pages: {
+    signIn: "/auth", // Customize this to your sign-in page
+  },
+  session: {
+    jwt: true,
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 });

@@ -4,6 +4,8 @@ const initialState = {
   showModel: false,
   setMovie: null,
   searchMovie: null,
+  moviePlayer: false,
+  trailer: null,
 };
 const modalSlice = createSlice({
   name: "MovieModal",
@@ -24,6 +26,13 @@ const modalSlice = createSlice({
       state.searchMovie = data.results;
       console.log(state.searchMovie);
     },
+    setmoviePlayer: (state) => {
+      state.moviePlayer = !state.moviePlayer;
+      state.showModel = false;
+    },
+    settrailer: (state, { payload }) => {
+      state.trailer = payload;
+    },
   },
 });
 export const {
@@ -31,5 +40,7 @@ export const {
   setCurrentMovie,
   toggleMovieModal,
   setSearchMovie,
+  setmoviePlayer,
+  settrailer,
 } = modalSlice.actions;
 export default modalSlice.reducer;

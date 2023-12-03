@@ -1,0 +1,24 @@
+.modal_videoPlayer_fullscreen{
+    position: relative;
+    /* z-index: 20; */
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+   }
+   .exist_btn{
+    position: absolute;
+    z-index: 1;
+    left: 95%;
+    top: 3%;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    padding: 0.35rem;
+    background-color: rgba(76, 76, 76, 0.844);
+    color: rgb(255, 255, 255);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+   }

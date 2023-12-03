@@ -16,20 +16,6 @@ const Authform = () => {
   const [values, setValues] = useState(initialState);
   const router = useRouter();
 
-  const fetchData = async (path, userName, userEmail, userPassword) => {
-    const response = await fetch(`/api/auth/${path}`, {
-      method: "POST",
-      body: JSON.stringify({
-        name: userName,
-        email: userEmail,
-        password: userPassword,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-  };
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -45,21 +31,52 @@ const Authform = () => {
     }
 
     const loginUser = async () => {
-
-      await signIn("credentials", {
+      const response = await signIn("credentials", {
         redirect: false,
         email: email,
         password: password,
         callbackUrl: "/profile",
       });
-      router.push("/profile");
+      if (!response.ok) {
+        if (response.status === 401) {
+          toast.error(" Unauthorized! Invalid Credentials");
+        } 
+      }
+    };
+    const register = async () => {
+      try {
+        const response = await fetch(`/api/auth/signup`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          if (response.status === 409) {
+            toast.error("Email already exist. Please check your Email.");
+          } else if (response.status === 422) {
+            toast.error("Unable to Signup");
+          }
+        }
+
+        router.replace("/profile");
+      } catch (err) {
+        console.log(err);
+      }
     };
     if (isLogin) {
       loginUser();
       return;
     }
-    fetchData("signup", name, email, password);
-    loginUser();
+    register();
+    router.push("/profile");
+    // fetchData("signup", name, email, password);
+    // loginUser();
     setValues(initialState);
   };
 

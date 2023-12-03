@@ -1,3 +1,4 @@
+import React from "react";
 import FeaturedPosts from "@/components/HomePage/featuredPosts";
 import BillBoard from "@/components/ProfilePage/Billboard/billBoard";
 import Categories from "@/components/ProfilePage/Categories/categories";
@@ -6,8 +7,8 @@ import Navbar from "@/components/ProfilePage/Navbar/navbar";
 import requests from "@/utils/request";
 import { getSession } from "next-auth/react";
 import { useSelector } from "react-redux";
+import FullScreenReactPlayer from "@/components/ProfilePage/Modal/reactplayer";
 
-import React from "react";
 const Profile = ({
   netflixOriginals,
   trendingNow,
@@ -18,7 +19,9 @@ const Profile = ({
   romanceMovies,
   documentaries,
 }) => {
-  const { showModel } = useSelector((store) => store.MovieModal);
+  const { showModel, moviePlayer, trailer } = useSelector(
+    (store) => store.MovieModal
+  );
   return (
     <>
       <Navbar />
@@ -35,24 +38,13 @@ const Profile = ({
           <Categories title={"documentaries"} movie={documentaries} />
         </section>
       </main>
+      {moviePlayer && <FullScreenReactPlayer trailer={trailer} />}
       {showModel && <MovieModal />}
     </>
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const session = await getSession({
-    req: context.req,
-  });
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/auth",
-        permanent: false,
-      },
-    };
-  }
+export const getServerSideProps = async () => {
   const [
     netflixOriginals,
     trendingNow,
@@ -82,7 +74,6 @@ export const getServerSideProps = async (context) => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
-      session,
     },
   };
 };
