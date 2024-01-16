@@ -10,53 +10,59 @@ for a smooth and responsive user interface
 
 ## Build with
 
-[![NEXTJS](https://img.shields.io/badge/NEXT.JS-green.svg)](https://nextjs.org/)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 
-[![MONGO.JS](https://img.shields.io/badge/MONGO_DB-red.svg)]( https://www.mongodb.com/)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-[![REACT_REDUX](https://img.shields.io/badge/REACT_REDUX-yellow.svg)](https://react-redux.js.org/)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 
 
-## Installation
+## How to run it locally
 
-Clone the repo
+### Clone the repo
 ```
 https://github.com/yuvikadhiman/Netflix_Clone--NextJs.git
 ```
-Install NPM packages
+
+### Changing directory
+```
+cd Netflix_Clone--NextJs/netflix-clone
+```
+
+### Install NPM packages
 ```
 npm install
 ```
-Environment Variables
+### DON'T FORGOT TO SETUP ENV VARIABLES
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`MONGO_URI =`
+`MONGO_URI`
 
-`JWT_SECRET =`
+`JWT_SECRET` 
 
-`JWT_LIFETIME =`
+`JWT_LIFETIME`
 
-`NEXTAUTH_JWT_SECRET`=
+`NEXTAUTH_JWT_SECRET`
 
-`NEXTAUTH_SECRET=`
+`NEXTAUTH_SECRET`
 
-`GITHUB_ID =`
+`GITHUB_ID`
 
-`GITHUB_SECRET=`
+`GITHUB_SECRET`
 
-`GOOGLE_CLIENT_ID=`
+`GOOGLE_CLIENT_ID`
 
-`GOOGLE_CLIENT_SECRET=`
+`GOOGLE_CLIENT_SECRET`
 
-`NEXT_PUBLIC_OPENAI_API_KEY=`
+`NEXT_PUBLIC_OPENAI_API_KEY`
 
-`NEXT_PUBLIC_API_KEY=`
+`NEXT_PUBLIC_API_KEY`
 
-## How To Run Application
+### Start dev server 
 ```
-cd netflix-clone
 npm run dev
 ```
 
- 
