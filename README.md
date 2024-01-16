@@ -32,15 +32,25 @@ Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
 
 `MONGO_URI =`
+
 `JWT_SECRET =`
+
 `JWT_LIFETIME =`
+
 `NEXTAUTH_JWT_SECRET`=
+
 `NEXTAUTH_SECRET=`
+
 `GITHUB_ID =`
+
 `GITHUB_SECRET=`
+
 `GOOGLE_CLIENT_ID=`
+
 `GOOGLE_CLIENT_SECRET=`
+
 `NEXT_PUBLIC_OPENAI_API_KEY=`
+
 `NEXT_PUBLIC_API_KEY=`
 
 ## How To Run Application
