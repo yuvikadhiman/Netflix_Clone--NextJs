@@ -5,7 +5,7 @@ import Logo from "../HomePage/logo";
 import Authform from "./authform";
 
 const AuthPage = (session) => {
-  console.log(session)
+  // console.log(session)
   return (
     <section className={classes.auth_section}>
       <div className={classes.auth_bg}>

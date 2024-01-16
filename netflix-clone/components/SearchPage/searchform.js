@@ -6,7 +6,7 @@ import { setSearchMovie } from "@/redux_features/movies/moviesSlice";
 
 const SearchForm = () => {
   const searchText = useRef();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     const movie = searchText.current.value;
@@ -19,9 +19,8 @@ const SearchForm = () => {
           method: "GET",
         }
       );
-
       const data = await res.json();
-      dispatch(setSearchMovie({data}))
+      dispatch(setSearchMovie({ data }));
     } catch (e) {
       console.log(e);
     }

@@ -5,7 +5,7 @@ import Image from "next/image";
 const FeatureTile1 = () => {
   return (
     <div className={classes.post}>
-    <div className={classes.post1_Content}>
+    <div className={classes.post_Content}>
       <h1>Enjoy on your TV</h1>
       <p>
         Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray

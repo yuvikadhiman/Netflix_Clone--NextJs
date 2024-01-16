@@ -3,7 +3,6 @@ import classes from "./ComponentStyles/register.module.css";
 import { AiOutlineRight } from "react-icons/ai";
 import Link from "next/link";
 
-
 const Register = () => {
   return (
     <div className={classes.register}>
@@ -14,8 +13,10 @@ const Register = () => {
         <div className={classes.control}>
           <input type="email" id="email" placeholder="Email address" />
         </div>
-        <Link className={classes.btn} href="/auth">
-          Get Started <AiOutlineRight className={classes.icon} />
+
+        <Link href="/auth" className={classes.btn}>
+          Get Started
+          <AiOutlineRight className={classes.icon} />
         </Link>
       </form>
     </div>

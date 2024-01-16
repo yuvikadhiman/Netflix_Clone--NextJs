@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       <ToastContainer position='top-center' />
-
       </Provider>
     </SessionProvider>
   );

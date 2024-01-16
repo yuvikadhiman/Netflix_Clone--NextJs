@@ -7,8 +7,6 @@ import { useSession, signOut } from "next-auth/react";
 const SignOut = () => {
   const [showSignOut, setSignOut] = useState(false);
   const { data: session, status } = useSession();
-  console.log(session)
-  console.log(status)
   return (
     <>
       {showSignOut ? (
@@ -19,7 +17,7 @@ const SignOut = () => {
               <div className={classes.nav_showSignOut_user}>
                 <Image
                   className={classes.nav_profile_img}
-                  src={session.user.image}
+                  src={session.user.image || "/images/profile.png"}
                   width={100}
                   height={100}
                 />

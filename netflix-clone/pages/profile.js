@@ -18,6 +18,7 @@ const Profile = ({
   horrorMovies,
   romanceMovies,
   documentaries,
+  session
 }) => {
   const { showModel, moviePlayer, trailer } = useSelector(
     (store) => store.MovieModal
@@ -44,7 +45,7 @@ const Profile = ({
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   const [
     netflixOriginals,
     trendingNow,
@@ -64,8 +65,20 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ]);
+  const session = await getSession({
+    req: context.req,
+  });
+  if (!session) {
+    return {
+      redirect: {
+        destination:"/auth",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
+      session,
       netflixOriginals: netflixOriginals.results,
       trendingNow: trendingNow.results,
       topRated: topRated.results,

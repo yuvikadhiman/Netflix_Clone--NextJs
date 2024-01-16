@@ -23,8 +23,12 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Please provide password"],
       minlength: 6,
     },
+    favorteIds :{
+      type:String,
+    },
     created_at: { type: Date, required: true, default: Date.now },
     updated_at: { type: Date, required: true, default: Date.now },
+
   },
   {
     timestamps: {

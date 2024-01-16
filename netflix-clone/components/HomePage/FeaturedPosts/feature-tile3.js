@@ -5,7 +5,7 @@ import classes from "../ComponentStyles/featuredPosts.module.css";
 const FeatureTile3 = () => {
   return (
     <div className={classes.post}>
-    <div className={classes.post3_Content}>
+    <div className={classes.post_Content}>
       <h1> Watch everywhere</h1>
       <p>
         Stream unlimited movies and TV shows on your phone, tablet, laptop,

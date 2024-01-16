@@ -5,7 +5,7 @@ import classes from "../ComponentStyles/featuredPosts.module.css";
 const FeatureTile4 = () => {
   return (
     <div className={classes.post}>
-        <div>
+        <div className={classes.post4}>
           <Image src="/images/children.png" width={600} height={500} />
         </div>
         <div className={classes.post_Content}>

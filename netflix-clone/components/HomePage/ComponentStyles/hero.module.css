@@ -70,3 +70,45 @@
   font-weight: 400;
   text-align: center;
 }
+
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  .headerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 4rem;
+    padding: 5rem;
+  }
+  .headerContent h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+  }
+  .headerContent p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .headerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 4rem 1rem;
+    padding: 1.5rem;
+  }
+  .headerContent h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+  }
+  .headerContent p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+}

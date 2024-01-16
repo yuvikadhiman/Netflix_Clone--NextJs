@@ -3,7 +3,7 @@
   padding: 2rem;
 }
 .question_container h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: 2px;
   text-align: center;
@@ -12,5 +12,17 @@
   width: 85vw;
   background: rgb(0, 0, 0);
   margin:3rem 4rem;
-  padding:  0 4rem;
+  padding:  0 3rem;
 }
+
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+
+}
+@media screen and (max-width: 768px) {
+  .question_container {
+  background-color: black;
+  padding:  2rem 0rem;
+}
+} 
+
+

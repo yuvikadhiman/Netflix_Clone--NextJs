@@ -19,7 +19,7 @@ const SignupHandler = async (req, res) => {
       throw new Error("Empty input fields");
     }
     await connectDB(process.env.MONGO_URI);
-    console.log("connected to user database");
+    console.log("connected to user database!");
     const Existinguser = await User.findOne({ email: email });
     if (Existinguser) {
       return res.status(409).json({error:'invalid credential'});
@@ -30,7 +30,7 @@ const SignupHandler = async (req, res) => {
     if (!token) {
       return res.status(422).json({error:'invalid credential'});
     }
-    return res.status(201).json({
+    return res.status(200).json({
       user: {
         name: user.name,
         email: user.email,

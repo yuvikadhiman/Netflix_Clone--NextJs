@@ -22,64 +22,78 @@ const Authform = () => {
     setValues({ ...values, [name]: value });
   };
 
+  // const FetchData = async (path, name,email,password) => {
+  //   const response = await fetch(`/api/auth/${path}`, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       name: name,
+  //           email: email,
+  //           password: password,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   if (!response.ok) {
+  //           if (response.status === 409) {
+  //             toast.error("Email already exist. Please check your Email.");
+  //           } else if (response.status === 422) {
+  //             toast.error("Unable to Signup");
+  //           }
+  //   }else{
+  //     const response = await signIn("credentials", {
+  //       redirect: false,
+  //       email: email,
+  //       password: password,
+  //       callbackUrl: "/profile",
+  //     });
+  //     console.log(response);
+  //     router.replace("/profile");
+  //   }
+  // };
   const submitHandler = async (e) => {
     e.preventDefault();
     const { name, email, password } = values;
     if (!email || !password || (!isLogin && !name)) {
       toast.error("Please fill out all fields");
       return;
-    }
-
-    const loginUser = async () => {
-      const response = await signIn("credentials", {
-        redirect: false,
-        email: email,
-        password: password,
-        callbackUrl: "/profile",
-      });
+    }if(!isLogin){
+      const response = await fetch(`/api/auth/signup`, {
+              method: "POST",
+              body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
       if (!response.ok) {
-        if (response.status === 401) {
-          toast.error(" Unauthorized! Invalid Credentials");
-        } 
+              if (response.status === 409) {
+                toast.error("Email already exist. Please check your Email.");
+              } else if (response.status === 422) {
+                toast.error("Unable to Signup");
+              }
+        return;
       }
-    };
-    const register = async () => {
-      try {
-        const response = await fetch(`/api/auth/signup`, {
-          method: "POST",
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        if (!response.ok) {
-          if (response.status === 409) {
-            toast.error("Email already exist. Please check your Email.");
-          } else if (response.status === 422) {
-            toast.error("Unable to Signup");
-          }
-        }
-
-        router.replace("/profile");
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (isLogin) {
-      loginUser();
-      return;
     }
-    register();
-    router.push("/profile");
-    // fetchData("signup", name, email, password);
-    // loginUser();
+    const response = await signIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
+      callbackUrl: "/profile",
+    });
+    // console.log(response);
+    router.replace("/profile");
+    if (!response.ok) {
+      if (response.status === 401) {
+        toast.error(" Unauthorized! Invalid Credentials");
+      } 
+    }
     setValues(initialState);
-  };
-
+  }
+  
   const switchAuthModeHandler = () => {
     setIsLogin((isLogin) => !isLogin);
   };
@@ -96,7 +110,7 @@ const Authform = () => {
               value={values.name}
               placeholder="Name"
               onChange={handleChange}
-            />
+              />
           </div>
         )}
         <div className={classes.control}>
@@ -106,7 +120,7 @@ const Authform = () => {
             placeholder="Email"
             value={values.email}
             onChange={handleChange}
-          />
+            />
         </div>
         <div className={classes.control}>
           <input
@@ -115,7 +129,7 @@ const Authform = () => {
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
-          />
+            />
         </div>
         <div className={classes.action}>
           <button> {isLogin ? "Login" : "Create Account"}</button>
@@ -138,7 +152,7 @@ const Authform = () => {
           <div
             className={classes.login_github}
             onClick={() => signIn("github", { callbackUrl: "/profile" })}
-          >
+            >
             <FaGithub size={30} color={"rgb(1, 22, 39)"} />
           </div>
         </div>
@@ -149,7 +163,7 @@ const Authform = () => {
             <span
               className={classes.signup_link}
               onClick={switchAuthModeHandler}
-            >
+              >
               {" "}
               {isLogin ? "Sign up now" : "Login"}
             </span>
@@ -169,3 +183,69 @@ const Authform = () => {
 };
 
 export default Authform;
+
+
+
+
+
+
+
+
+    // if(isLogin){
+    //   const response = await signIn("credentials", {
+    //     redirect: false,
+    //     email: email,
+    //     password: password,
+    //     callbackUrl: "/profile",
+    //   });
+    //   // console.log(response);
+    //   router.replace("/profile");
+    //   if (!response.ok) {
+    //     if (response.status === 401) {
+    //       toast.error(" Unauthorized! Invalid Credentials");
+    //     } 
+    //   }
+    //   return;
+    // }
+    // FetchData("signup",name, email,password);
+    
+    // const register = async () => {
+    //   try {
+    //     const response = await fetch(`/api/auth/signup`, {
+    //       method: "POST",
+    //       body: JSON.stringify({
+    //         name: name,
+    //         email: email,
+    //         password: password,
+    //       }),
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
+    //     console.log(response)
+    //     router.push("/profile");
+    //     if (!response.ok) {
+    //       if (response.status === 409) {
+    //         toast.error("Email already exist. Please check your Email.");
+    //       } else if (response.status === 422) {
+    //         toast.error("Unable to Signup");
+    //       }
+    //     }
+    //     router.replace("/profile");
+    //   } 
+    //   catch (err) {
+    //     console.log(err);
+    //   }
+    // if (isLogin) {
+    //   loginUser();
+    //   return;
+    // }
+    // else{
+    //   register();
+    // }
+    // (isLogin)?loginUser():register();
+
+    // fetchData("signup", name, email, password);
+    // loginUser();
+  
+    
